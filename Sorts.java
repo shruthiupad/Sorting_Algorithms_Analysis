@@ -57,6 +57,7 @@ public class Sorts{
             // Iterate through the unsorted portion
             // to find the actual minimum
             for (int j = i + 1; j < n; j++) {
+                steps+=3;
                 if (list[j] < list[min_idx]) {
                   
                     // Update min_idx if a smaller element
@@ -94,6 +95,7 @@ public class Sorts{
                greater than key, to one position ahead
                of their current position */
             while (j >= 0 && list[j] > key) {
+                steps+=3;
                 list[j + 1] = list[j];
                 j = j - 1;
             }
@@ -130,6 +132,7 @@ public class Sorts{
     public static void merge(int[] a, int[] l, int[] r, int left, int right) {
       int i = 0, j = 0, k = 0;
       while (i < left && j < right) {
+          steps+=2;
         if (l[i] <= r[j])
         {
           a[k++] = l[i++];
@@ -142,10 +145,12 @@ public class Sorts{
         
       while (i < left)
       {
+          steps+=1;
         a[k++] = l[i++];
       }
       while (j < right)
       {
+          steps+=1;
         a[k++] = r[j++];
       }
     }    
